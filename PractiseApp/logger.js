@@ -22,6 +22,8 @@ module.exports = log;
 console.log(module);
 
 /* VERY IMPORTANT NOTE */
-/* YOU CANNOT PERFORM EXPORTS OF A SINGLE MEMBER SUCH AS A VARIABLE OR A FUNCTION
+/* 1. YOU CANNOT PERFORM EXPORTS OF A SINGLE MEMBER SUCH AS A VARIABLE OR A FUNCTION
    BECAUSE THE FINAL EXPORT WILL OVERWRITE THE PREVIOUS NAMED EXPORT.
+   2. We cannot do "exports = varName" or "exports = methodName" because we cannot overwrite the definition for "exports" in the argument of
+   module wrapper function
 */
