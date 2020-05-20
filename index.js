@@ -3,6 +3,8 @@
   apply the conflict markers (same as how git does) and then return a patch of conflict markers.
   
 - Trying this in debug environment in an IDE like VSCode is more insightful.
+
+- "diff": "^4.0.2" was the version this script worked on.
 */
 
 const express = require('express');
