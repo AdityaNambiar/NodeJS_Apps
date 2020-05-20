@@ -1,3 +1,10 @@
+/*
+- The purpose of this script is to use diff3 (provided by diff package), find out where conflicts are indicated,
+  apply the conflict markers (same as how git does) and then return a patch of conflict markers.
+  
+- Trying this in debug environment in an IDE like VSCode is more insightful.
+*/
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -15,9 +22,9 @@ app.get('/',() => {
     console.log("Home");
 })
 
-const basefile_loc = __dirname+"/docker-compose.yml";
-const masterfile_loc = __dirname+"/docker-compose-master.yml";
-const featurefile_loc = __dirname+"/docker-compose-feature.yml";
+const basefile_loc = __dirname+"/docker-compose.yml"; // This was my local file - It could be any file that can be considered 'base' for further modified files.
+const masterfile_loc = __dirname+"/docker-compose-master.yml"; // local file - can be considered to be part of master branch (with more modifications than basefile)
+const featurefile_loc = __dirname+"/docker-compose-feature.yml"; // local file - can be considered to be part of feature branch (with more modifications than basefile)
 const basefile = fs.readFileSync(basefile_loc, {encoding: "utf-8"});
 const masterfile = fs.readFileSync(masterfile_loc, {encoding: "utf-8"});
 const featurefile = fs.readFileSync(featurefile_loc, {encoding: "utf-8"});
